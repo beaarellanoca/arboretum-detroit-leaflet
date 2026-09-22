@@ -35,10 +35,7 @@ p {
     line-height: 1.65;
 }
 
-
-/* ================================================== */
 /* COVER */
-/* ================================================== */
 
 .hero {
     min-height: 100vh;
@@ -101,9 +98,7 @@ p {
 
 }
 
-/* ================================================== */
 /* GENERAL STORY SLIDES */
-/* ================================================== */
 
 .story-slide {
     min-height: 88vh;
@@ -162,13 +157,11 @@ p {
     max-height: 350px;
     margin-top: 25px;
     object-fit: contain;
-    background: white;
+    background: transparent;
 }
 
 
-/* ================================================== */
 /* IMAGE BACKGROUND STORY SLIDES */
-/* ================================================== */
 
 .image-story-slide {
     min-height: 92vh;
@@ -212,15 +205,59 @@ p {
     transform: translateY(-50%);
 }
 
+/* WHY DETROIT LAYOUT */
+
+.history-slide {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) minmax(340px, 1.45fr);
+    gap: 40px;
+    align-items: center;
+
+    min-height: 88vh;
+    padding: 45px 6%;
+}
+
+.history-slide .left-overlay {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    margin: 0;
+
+    transform: none;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.history-slide > img {
+    width: 100%;
+    height: auto;
+    max-height: 78vh;
+
+    object-fit: contain;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    transform: none;
+}
+
 .image-overlay-box h2 {
     margin-top: 0;
     font-size: clamp(2rem, 4vw, 3.7rem);
 }
 
 
-/* ================================================== */
 /* GIANT SEQUOIA */
-/* ================================================== */
 
 .sequoia-layout {
     display: grid;
@@ -256,12 +293,11 @@ p {
     margin: 12px 0 0;
     font-size: 0.85rem;
     font-style: italic;
+    text-align: center;
 }
 
 
-/* ================================================== */
 /* PROJECT SITES INTRODUCTION */
-/* ================================================== */
 
 .project-intro-slide {
     grid-template-columns: 1fr 1fr;
@@ -272,9 +308,7 @@ p {
 }
 
 
-/* ================================================== */
 /* INTERACTIVE LEAFLET MAP */
-/* ================================================== */
 
 .interactive-map-slide {
     min-height: 100vh;
@@ -349,9 +383,7 @@ p {
 }
 
 
-/* ================================================== */
 /* CLOSING COLLAGES */
-/* ================================================== */
 
 .closing-collage-slide {
     min-height: 90vh;
@@ -391,9 +423,7 @@ p {
 }
 
 
-/* ================================================== */
 /* SUPPORT */
-/* ================================================== */
 
 .support-section {
     padding: 55px 11%;
@@ -411,9 +441,7 @@ p {
 }
 
 
-/* ================================================== */
 /* LEAFLET */
-/* ================================================== */
 
 .leaflet-popup-content {
     font-family: Georgia, "Times New Roman", serif;
@@ -421,9 +449,7 @@ p {
 }
 
 
-/* ================================================== */
 /* TABLET AND MOBILE */
-/* ================================================== */
 
 @media (max-width: 900px) {
     .two-column,
@@ -529,9 +555,8 @@ p {
 .site-popup ul {
     padding-left: 18px;
 }
-/* ================================================== */
+
 /* LONG PROJECT-SITE DESCRIPTIONS */
-/* ================================================== */
 
 .site-details-panel {
     max-height: 650px;
@@ -554,11 +579,8 @@ p {
     line-height: 1.5;
 }
 
-
-/* ================================================== */
 /* RESTORATION CLOSING */
 /* collage01 is the full background image */
-/* ================================================== */
 
 .restoration-closing-section {
     min-height: 90vh;
@@ -594,9 +616,7 @@ p {
 }
 
 
-/* ================================================== */
 /* FINAL COLLAGE */
-/* ================================================== */
 
 .final-collage-section {
     min-height: 85vh;
@@ -617,9 +637,7 @@ p {
 }
 
 
-/* ================================================== */
 /* SUPPORT SECTION */
-/* ================================================== */
 
 .support-section {
     padding: 55px 11%;
@@ -643,9 +661,7 @@ p {
 }
 
 
-/* ================================================== */
 /* MOBILE CLOSING */
-/* ================================================== */
 
 @media (max-width: 800px) {
 
@@ -661,52 +677,52 @@ p {
         margin: 0;
     }
 
-    .final-collage-section {
-        min-height: auto;
-    }
 }
-/* ================================================== */
+
 /* COMMUNITY STORIES CAROUSEL */
-/* ================================================== */
 
 .community-stories-section {
+    width: 100%;
     min-height: 100vh;
+    box-sizing: border-box;
     padding: 70px 7%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    background: var(--story-green);
+    background-color: var(--story-green);
 }
 
 
-/* ------------------------------ */
 /* SECTION HEADING */
-/* ------------------------------ */
 
 .community-stories-heading {
     width: min(850px, 100%);
-    margin: 0 auto 45px;
+    margin: 0 auto 45px auto;
     text-align: center;
 }
 
 .community-stories-heading h2 {
-    margin: 0 0 18px;
+    margin: 0 0 18px 0;
+
     font-size: clamp(2.3rem, 4vw, 3.8rem);
+    line-height: 1.1;
+
     color: var(--dark-green);
 }
 
 .community-stories-heading p {
     margin: 0;
+
     font-size: 1.05rem;
     line-height: 1.7;
+
+    color: var(--dark-green);
 }
 
 
-/* ------------------------------ */
-/* CAROUSEL LAYOUT */
-/* ------------------------------ */
+/* CAROUSEL */
 
 .community-story-carousel {
     width: min(1150px, 100%);
@@ -716,39 +732,40 @@ p {
     grid-template-columns: 1.1fr 0.9fr;
     align-items: stretch;
 
+    overflow: hidden;
+
     box-shadow: var(--shadow);
 }
 
 
-/* ------------------------------ */
-/* IMAGE */
-/* ------------------------------ */
+/* IMAGE SIDE */
 
 .community-story-image-wrapper {
-    min-height: 560px;
+    width: 100%;
+    height: 560px;
+
     overflow: hidden;
-    background: #eeeeee;
+
+    background-color: #eeeeee;
 }
 
 .community-story-image-wrapper img {
+    display: block;
+
     width: 100%;
     height: 100%;
-    min-height: 560px;
 
     object-fit: cover;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.4s ease;
+    object-position: center;
 }
 
 
-/* ------------------------------ */
 /* STORY CARD */
-/* ------------------------------ */
 
 .community-story-card {
-    min-height: 560px;
+    height: 560px;
+    box-sizing: border-box;
+
     padding: 50px;
 
     display: flex;
@@ -756,55 +773,58 @@ p {
     justify-content: center;
 
     color: white;
-    background: var(--dark-panel);
+    background-color: var(--dark-panel);
 }
 
-
 .community-story-number {
-    margin: 0 0 25px;
+    margin: 0 0 25px 0;
 
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
 
+    color: white;
     opacity: 0.75;
 }
 
-
 .community-story-card blockquote {
-    margin: 0 0 35px;
+    margin: 0 0 35px 0;
     padding: 0;
 
     font-size: clamp(1.25rem, 2vw, 1.65rem);
     line-height: 1.65;
     font-style: italic;
+
+    color: white;
 }
 
-
 .community-story-person h3 {
-    margin: 0 0 7px;
+    margin: 0 0 7px 0;
 
     font-size: 1.35rem;
     font-weight: 500;
-}
 
+    color: white;
+}
 
 .community-story-person p {
     margin: 0;
+
+    color: white;
     opacity: 0.8;
 }
 
 
-/* ------------------------------ */
-/* CONTROLS */
-/* ------------------------------ */
+/* STORY CONTROLS */
 
 .community-story-controls {
+    width: 100%;
     margin-top: 45px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 }
 
@@ -815,17 +835,22 @@ p {
     width: 48px;
     height: 48px;
 
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 0;
+
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 50%;
 
-    background: transparent;
+    background-color: transparent;
     color: white;
 
     font-size: 1.4rem;
+    line-height: 1;
 
     cursor: pointer;
 
@@ -835,36 +860,36 @@ p {
         transform 0.2s ease;
 }
 
-
 .story-arrow:hover {
-    background: white;
+    background-color: white;
     color: var(--dark-green);
+
     transform: scale(1.08);
 }
 
 
-/* ------------------------------ */
-/* DOTS */
-/* ------------------------------ */
+/* NAVIGATION DOTS */
 
 .community-story-dots {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 12px;
 }
-
 
 .community-story-dot {
     width: 11px;
     height: 11px;
+
+    flex-shrink: 0;
 
     padding: 0;
 
     border: 1px solid white;
     border-radius: 50%;
 
-    background: transparent;
+    background-color: transparent;
 
     cursor: pointer;
 
@@ -873,19 +898,17 @@ p {
         transform 0.2s ease;
 }
 
-
 .community-story-dot:hover {
     transform: scale(1.25);
 }
 
-
 .community-story-dot.active {
-    background: white;
+    background-color: white;
 }
 
-/* ================================================== */
-/* COMMUNITY STORIES - MOBILE */
-/* ================================================== */
+
+/* COMMUNITY STORIES - TABLET / MOBILE */
+
 
 @media (max-width: 850px) {
 
@@ -894,52 +917,49 @@ p {
         padding: 55px 7%;
     }
 
+    .community-stories-heading {
+        margin-bottom: 35px;
+    }
 
     .community-story-carousel {
         grid-template-columns: 1fr;
     }
 
-
     .community-story-image-wrapper {
-        min-height: 400px;
+        height: 400px;
     }
-
-
-    .community-story-image-wrapper img {
-        min-height: 400px;
-        max-height: 500px;
-    }
-
 
     .community-story-card {
-        min-height: auto;
+        height: auto;
+        min-height: 400px;
+
         padding: 35px 28px;
     }
 
 }
 
 
+/* SMALL PHONES */
+
 @media (max-width: 500px) {
 
+    .community-stories-section {
+        padding: 45px 5%;
+    }
+
     .community-story-image-wrapper {
-        min-height: 320px;
+        height: 320px;
     }
-
-
-    .community-story-image-wrapper img {
-        min-height: 320px;
-    }
-
 
     .community-story-card {
+        min-height: auto;
+
         padding: 30px 22px;
     }
-
 
     .community-story-controls {
         margin-top: 35px;
     }
-
 
     .story-arrow {
         width: 42px;
