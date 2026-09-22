@@ -958,3 +958,278 @@ fetch("data/ArbDetroit_Sites.geojson")
         siteImage.style.display =
             "none";
     });
+// =====================================================
+// COMMUNITY STORIES CAROUSEL
+// =====================================================
+
+
+// -----------------------------------------------------
+// COMMUNITY STORY DATA
+//
+// Replace these placeholder stories later with real
+// community member names, photographs, roles, and stories.
+// -----------------------------------------------------
+
+const communityStories = [
+
+    // STORY 1
+    {
+        name: "Community Member",
+        role: "Poletown East Resident",
+
+        story:
+            "Personal community story will be added here. " +
+            "This space can be used to share a resident's connection " +
+            "to Poletown East, Arboretum Detroit, or the neighborhood's " +
+            "changing landscape.",
+
+        image: "images/ProjectSite.jpg"
+    },
+
+
+    // STORY 2
+    {
+        name: "Community Member",
+        role: "Arboretum Detroit Volunteer",
+
+        story:
+            "Personal community story will be added here. " +
+            "This story could describe someone's experience volunteering " +
+            "at a tree planting, restoration event, or community gathering.",
+
+        image: "images/placing.webp"
+    },
+
+
+    // STORY 3
+    {
+        name: "Community Member",
+        role: "Student Participant",
+
+        story:
+            "Personal community story will be added here. " +
+            "This space could highlight a student's experience learning " +
+            "about trees, ecology, restoration, or environmental stewardship.",
+
+        image: "images/WangariSequoia.webp"
+    },
+
+
+    // STORY 4
+    {
+        name: "Community Member",
+        role: "Community Volunteer",
+
+        story:
+            "Personal community story will be added here. " +
+            "This space could share how participating in Arboretum Detroit's " +
+            "projects has shaped someone's connection to the neighborhood " +
+            "and its urban forest.",
+
+        image: "images/OtherEarthDayendOFday.webp"
+    }
+
+];
+
+
+// =====================================================
+// GET COMMUNITY STORY PAGE ELEMENTS
+// =====================================================
+
+const communityStoryImage =
+    document.getElementById("community-story-image");
+
+const communityStoryText =
+    document.getElementById("community-story-text");
+
+const communityStoryName =
+    document.getElementById("community-story-name");
+
+const communityStoryRole =
+    document.getElementById("community-story-role");
+
+const communityStoryNumber =
+    document.getElementById("community-story-number");
+
+const communityStoryDots =
+    document.getElementById("community-story-dots");
+
+const previousCommunityStory =
+    document.getElementById("previous-community-story");
+
+const nextCommunityStory =
+    document.getElementById("next-community-story");
+
+
+// =====================================================
+// CURRENT STORY
+// =====================================================
+
+let currentCommunityStory = 0;
+
+
+// =====================================================
+// CREATE NAVIGATION DOTS
+// =====================================================
+
+communityStories.forEach((story, index) => {
+
+    const dot =
+        document.createElement("button");
+
+    dot.type = "button";
+
+    dot.className =
+        "community-story-dot";
+
+    dot.setAttribute(
+        "aria-label",
+        `View community story ${index + 1}`
+    );
+
+
+    dot.addEventListener(
+        "click",
+        function() {
+
+            currentCommunityStory = index;
+
+            showCommunityStory(
+                currentCommunityStory
+            );
+
+        }
+    );
+
+
+    communityStoryDots.appendChild(dot);
+
+});
+
+
+// =====================================================
+// DISPLAY COMMUNITY STORY
+// =====================================================
+
+function showCommunityStory(index) {
+
+    const story =
+        communityStories[index];
+
+
+    // Update image.
+
+    communityStoryImage.src =
+        story.image;
+
+    communityStoryImage.alt =
+        `${story.name} community story`;
+
+
+    // Update story text.
+
+    communityStoryText.textContent =
+        story.story;
+
+
+    // Update person information.
+
+    communityStoryName.textContent =
+        story.name;
+
+    communityStoryRole.textContent =
+        story.role;
+
+
+    // Update story number.
+
+    communityStoryNumber.textContent =
+        `Story ${index + 1} of ${communityStories.length}`;
+
+
+    // Update navigation dots.
+
+    const dots =
+        document.querySelectorAll(
+            ".community-story-dot"
+        );
+
+
+    dots.forEach(
+        (dot, dotIndex) => {
+
+            dot.classList.toggle(
+                "active",
+                dotIndex === index
+            );
+
+        }
+    );
+
+}
+
+
+// =====================================================
+// NEXT STORY
+// =====================================================
+
+nextCommunityStory.addEventListener(
+    "click",
+    function() {
+
+        currentCommunityStory++;
+
+        // If we go past the last story,
+        // return to Story 1.
+
+        if (
+            currentCommunityStory >=
+            communityStories.length
+        ) {
+            currentCommunityStory = 0;
+        }
+
+
+        showCommunityStory(
+            currentCommunityStory
+        );
+
+    }
+);
+
+
+// =====================================================
+// PREVIOUS STORY
+// =====================================================
+
+previousCommunityStory.addEventListener(
+    "click",
+    function() {
+
+        currentCommunityStory--;
+
+        // If we go backward from Story 1,
+        // go to the final story.
+
+        if (currentCommunityStory < 0) {
+
+            currentCommunityStory =
+                communityStories.length - 1;
+
+        }
+
+
+        showCommunityStory(
+            currentCommunityStory
+        );
+
+    }
+);
+
+// =====================================================
+// START WITH STORY 1
+// =====================================================
+
+showCommunityStory(
+    currentCommunityStory
+);
